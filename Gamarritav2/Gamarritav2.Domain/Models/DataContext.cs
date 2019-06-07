@@ -1,5 +1,6 @@
 ﻿namespace Gamarritav2.Domain.Models
 {
+    using Common.Models;
     using System.Data.Entity;
 
     public class DataContext: DbContext
@@ -8,6 +9,6 @@
         {
         }
 
-        public System.Data.Entity.DbSet<Gamarritav2.Common.Models.Product> Products { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
