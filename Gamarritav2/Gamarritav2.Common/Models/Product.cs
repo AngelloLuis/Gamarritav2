@@ -28,6 +28,19 @@
         [DataType(DataType.Date)]
         public DateTime publishOn { get; set; }
 
+        public string imageFullPath
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(this.imagePath))
+                {
+                    return "noproduct";
+                }
+
+                return $"https://gamarritav2backend20190530074714.azurewebsites.net/{this.imagePath.Substring(1)}";
+            }
+        }
+
         public override string ToString()
         {
             return this.description;

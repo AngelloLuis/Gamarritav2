@@ -4,6 +4,9 @@
              x:Class="Gamarritav2.Views.ProductsPage"
              BindingContext="{Binding Main, Source={ StaticResource Locator }}"
              Title="Products">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="ic_action_add_circle" Command="{Binding AddProductCommand}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Products}"
@@ -19,17 +22,31 @@
                         <ViewCell>
                             <Grid>
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="2*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label
-                                    FontAttributes="Bold"
+                                <Image
                                     Grid.Column="0"
-                                    Text="{Binding description}">
-                                </Label>
-                                <Label
+                                    Source="{Binding imageFullPath}"
+                                    WidthRequest="100">
+                                </Image>
+                                <StackLayout
                                     Grid.Column="1"
+                                    VerticalOptions="Center">
+                                    <Label
+                                    FontAttributes="Bold"
+                                    Text="{Binding description}">
+                                    </Label>
+                                    <Label
+                                    FontAttributes="Bold"
+                                    Text="{Binding remarks}">
+                                    </Label>
+                                </StackLayout>
+                                <Label
+                                    Grid.Column="2"
                                     HorizontalOptions="End"
+                                    VerticalOptions="Center"
                                     Text="{Binding price, StringFormat='{0:C2}'}">
                                 </Label>
                             </Grid>
